@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+    <head>
+       <title>Quotes</title>
+       {% load staticfiles %}
+        <link rel="stylesheet" href="{% static 'QuotationsApp/css/styles.css' %}">
+    </head>
+    <body>
+      <div id="wrapper">
+          <h1> Welcome {{request.session.firstName}}</h1>
+          <a href="/">logout</a>
+          <br><br>
+        <div id="#scrollBox">
+          <h2>Quoteable Quotes</h2>
+          {% for quote in quoteList %}
+              <p>{{quote.quotedBy}}: {{quote.message}}</p>
+              Posted By: <a href="/userQuotes/{{quote.user.pk}}">{{quote.user.first_name}}</a><br>
+              <a href="/addFavorite/{{quote.pk}}/{{user_id}}">Add to my List</a><br>
+              <a href="/delFavorite/{{quote.pk}}/{{user_id}}">Remove from my List</a><br><br>
+          {% empty %}
+            <p>No Quotes found.</p>
+          {% endfor %}
+        </div>
+
+        <div id="box">
+            <h2>Your Favorites</h2>
+            <div id="#scrollBox">
+              {% for favorite in usersFavorites %}
+              <p>{{favorite.quotedBy}}: {{favorite.message}}</p>
+              <p>Posted By: {{favorite.user.first_name}}</p><br>
+              {% empty %}
+                <p>No Favorites found.</p>
+              {% endfor %}
+            </div>
+
+
+            <form action="/createQuote" method="post">
+              {% csrf_token %}
+              Quoted By: <input type="text" name="quotedBy"><br>
+              Message: <textarea name="message" ></textarea><br>
+              <input type="submit"value="submit">
+            </form>
+        </div>
+
+      </div>
+    </body>
+</html>

@@ -1,0 +1,22 @@
+<!doctype html>
+<html>
+    <head>
+       <title>Quotes</title>
+       {% load staticfiles %}
+        <link rel="stylesheet" href="{% static 'QuotationsApp/css/styles.css' %}">
+    </head>
+    <body>
+      <div id="wrapper">
+        <a href="/quotes">Dashbord</a>|<a href="/">Logout/a>
+          <h3> Posts By: {{thisUser.first_name}}</h3>
+          <p>Count:{{quoteListCt}}<p><br><br>
+          {% for quote in quoteList %}
+              {{quote.user.first_name}}: {{quote.message}}<br><br>
+          {% empty %}
+            <p>No Quotes found.</p>
+          {% endfor %}
+          <br><br>
+
+      </div>
+    </body>
+</html>

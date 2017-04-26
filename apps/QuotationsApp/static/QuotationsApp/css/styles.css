@@ -1,0 +1,54 @@
+*{
+  margin: 0px;
+  padding: 0px;
+}
+
+#wrapper {
+  padding: 30px;
+  width: 700px;
+  margin: 0 auto;
+  background-color: rgb(105,201,249);
+}
+
+#box {
+  border: 1px solid black;
+  border-radius: 5px;
+  vertical-align:top;
+  display: inline-block;
+  padding: 20px;
+}
+
+#scrollBox {
+  border: 1px solid black;
+  border-radius: 5px;
+  vertical-align:top;
+  display: inline-block;
+  padding: 20px;
+  width: 350px;
+  height: 150px;
+  overflow: scroll;
+}
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+
+.errorMessage {
+  color: red;
+}
+
+ul li {
+  text-decoration: none;
+}
